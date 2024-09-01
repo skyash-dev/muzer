@@ -1,16 +1,28 @@
 "use client";
-import { signIn } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function () {
+  const session = useSession();
   return (
     <div>
-      <button
-        onClick={() => {
-          signIn();
-        }}
-      >
-        Login
-      </button>
+      {session?.data?.user && (
+        <button
+          onClick={() => {
+            signOut();
+          }}
+        >
+          Logout
+        </button>
+      )}
+      {!session?.data?.user && (
+        <button
+          onClick={() => {
+            signIn();
+          }}
+        >
+          Login
+        </button>
+      )}
     </div>
   );
 }
