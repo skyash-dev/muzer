@@ -1,0 +1,17 @@
+"use client";
+
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+export function Redirect() {
+  const router = useRouter();
+  const session = useSession();
+
+  useEffect(() => {
+    if (session) {
+      router.push("/dashboard");
+    }
+  }, [session]);
+  return null;
+}

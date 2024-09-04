@@ -10,11 +10,13 @@ export default function Home() {
 
 import { Button } from "@/components/ui/button";
 import { ThumbsUp, ThumbsDown } from "lucide-react";
+import { Redirect } from "./components/Redirect";
 
 export function LandingPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
       <AppNavbar></AppNavbar>
+      <Redirect />
       <main className="flex-grow flex items-center justify-center">
         <div className="text-center px-4">
           <h1 className="text-5xl font-bold mb-6 text-purple-400">
